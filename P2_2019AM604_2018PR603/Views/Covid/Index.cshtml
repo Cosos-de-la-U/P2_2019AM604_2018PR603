@@ -1,0 +1,69 @@
+﻿@model List<P2_2019AM604_2018PR603.Models.ViewModel.Covid>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<center>
+    <p>
+        <h1>
+             Registro de Covid
+        </h1>
+        <h4>
+            El siguiente formulario es para llevar el registro de casos reportados de Covid por departamento y genero.
+        </h4>
+        <a asp-action="Create" class="btn btn-primary mx-5">Crear nuevo</a>
+    </p>
+</center>
+
+<br />
+
+<table class="table">
+    <thead class="table-dark">
+        <tr>
+            <th>
+                Departamento
+            </th>
+            <th>
+                Genero
+            </th>
+            <th>
+                Confirmado
+            </th>
+            <th>
+                Recuperado
+            </th>
+            <th>
+                Fallecidos
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Departamento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Confirmados)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Recuperados)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fallecidos)
+            </td>
+        </tr>
+}
+    <tr>
+            <td colspan="5" rowspan="2" class="center">
+             Derechos Reservados: 2019AM604 & 2018PR603
+            </td>
+    </tr>
+    </tbody>
+</table>
